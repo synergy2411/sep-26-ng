@@ -1,0 +1,9 @@
+<h2>Structural Directive</h2>
+
+<p (mouseenter)="changeStyle(true)" (mouseleave)="changeStyle(false)" [ngStyle]="styles">
+  This paragraph will dynamically change its style
+</p>
+
+<p (mouseenter)="toggleClasses()" (mouseleave)="toggleClasses()" [ngClass]="classes">
+  This paragraph will dynamically change its CSS Classes
+</p>
