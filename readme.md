@@ -19,3 +19,11 @@
 ## TypeScript Project Creation
 
 - npm create vite@latest
+
+## Decorators : functions; prefixed with '@' symbol
+
+- Class : @Component(), @Directive, @Pipe, @Injectable
+- Methods : @HostListener
+- Properties : @Input(), @Output()
+- Parameter : @Skip(), @Optional()
+- Setter / Getters

@@ -174,21 +174,7 @@ const updatedFriends = addAtBeginning<string>("Chandler", friends);
 console.log(typeof updatedFriends[0]); // 'string'
 
 // GENERIC CLASS
-class Stack<T> {
-  private list: T[] = [];
-
-  add(value: T) {
-    this.list.push(value);
-  }
-
-  getAll(): T[] {
-    return this.list.slice(0);
-  }
-
-  remove() {
-    this.list.pop();
-  }
-}
+import { Stack } from "./utils/stack";
 
 let numberList = new Stack<number>();
 numberList.add(101);
@@ -231,3 +217,12 @@ function demoFn<T extends { firstName: string; lastName: string }>(user: T) {
 }
 
 demoFn<User>(user2);
+
+// import { getMyLuckyNumber } from "./utils/fortune"; // Named
+
+import * as fortune from "./utils/fortune";
+
+import dailyQuote from "./utils/fortune"; // Default
+
+console.log("Your lucky number today : " + fortune.getMyLuckyNumber());
+console.log("Daily Quote : " + dailyQuote());
