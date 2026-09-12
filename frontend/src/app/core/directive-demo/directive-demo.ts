@@ -18,6 +18,15 @@ export class DirectiveDemo {
     'my-border': false,
   };
 
+  tab = 0;
+
+  todoCollection = [
+    { label: 'shopping', isCompleted: true },
+    { label: 'planting', isCompleted: false },
+    { label: 'grocery', isCompleted: true },
+    { label: 'insurance', isCompleted: false },
+  ];
+
   changeStyle(flag: boolean) {
     if (flag) {
       this.styles.border = '2px blue solid';

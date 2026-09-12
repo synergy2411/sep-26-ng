@@ -1,4 +1,6 @@
-<h2>Structural Directive</h2>
+<h1>Directive Categories and Examples</h1>
+
+<h2>Attribute Directives</h2>
 
 <p (mouseenter)="changeStyle(true)" (mouseleave)="changeStyle(false)" [ngStyle]="styles">
   This paragraph will dynamically change its style
@@ -7,3 +9,74 @@
 <p (mouseenter)="toggleClasses()" (mouseleave)="toggleClasses()" [ngClass]="classes">
   This paragraph will dynamically change its CSS Classes
 </p>
+
+<hr />
+
+<h2>Structural Directives</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Sr. No</th>
+      <th>Label</th>
+      <th>Completed</th>
+      <th>Even</th>
+      <th>Odd</th>
+      <th>First</th>
+      <th>Last</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      *ngFor="
+        let todo of todoCollection;
+        let i = index;
+        let isEven = even;
+        let isOdd = odd;
+        let isFirst = first;
+        let isLast = last
+      "
+    >
+      <td>{{ i + 1 }}</td>
+      <td>{{ todo.label }}</td>
+      <td>
+        <span *ngIf="todo.isCompleted; else NoTemplate">Yes</span>
+
+        <ng-template #NoTemplate>
+          <span>No</span>
+        </ng-template>
+      </td>
+      <td>{{ isEven }}</td>
+      <td>{{ isOdd }}</td>
+      <td>{{ isFirst }}</td>
+      <td>{{ isLast }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  @for (todo of todoCollection; track $index) {
+    @if (todo.isCompleted) {
+      <li>{{ todo.label }}</li>
+    }
+  }
+</ul>
+
+<ul class="nav nav-tabs">
+  <li class="nav-item"><button class="nav-link" (click)="tab = 1">Home</button></li>
+  <li class="nav-item"><button class="nav-link" (click)="tab = 2">Products</button></li>
+  <li class="nav-item"><button class="nav-link" (click)="tab = 3">Services</button></li>
+</ul>
+
+@switch (tab) {
+  @case (1) {
+    <p>Home Page</p>
+  }
+  @case (2) {
+    <p>Products Page</p>
+  }
+  @case (3) {
+    <p>Service Page</p>
+  }
+  @default {}
+}
