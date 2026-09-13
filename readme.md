@@ -58,3 +58,47 @@
 - npm install bootstrap
 - update angular.json > build > styles
   > "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+
+## Data Binding
+
+- Property Binding - []
+- Event Binding - ()
+- Two way data binding - [(ngModel)] - FormsModule
+
+## Nested Component Communication
+
+- Parent to Child
+  > Property Binding
+  > @Input() / input()
+- Child to Parent
+  > Event Binding
+  > @Output() / output() + EventEmitter
+- Content Projection / Data Projection (ng-content)
+
+## Directives : Marker on the UI
+
+- Component Directive : templates
+- Attribute Directive : Changes the appearence of the host element
+  > ngStyle
+  > ngClass
+- Structural Directive : Changes DOM Layout
+  > ngIf
+  > ngFor
+  > ngSwitch
+
+## Forms
+
+- Template Driven
+- Model Driven
+
+### Form / FormControl - Classes / States
+
+- touched / untouched
+- dirty / pristine
+- valid / invalid
+
+## JSON Server for fake REST endpoint
+
+- npm install -g json-server@0.17.4
+- create json file
+- json-server --watch db.json
