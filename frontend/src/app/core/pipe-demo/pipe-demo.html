@@ -1,0 +1,19 @@
+<h2>Built-in Pipes with Examples</h2>
+
+<p>UpperCase : {{ 'hello World' | uppercase }}</p>
+
+<p>LowerCase : {{ 'HELLO WORLD' | lowercase }}</p>
+
+<p>TitleCase : {{ 'HELLO WORLD' | titlecase }}</p>
+
+<p>JSON Pipe : {{ product | json }}</p>
+
+<p>Percent Pipe : {{ 0.2 | percent }}</p>
+
+<p>Currency Pipe : {{ product.price | currency: 'INR' }}</p>
+
+<p>Date Pipe : {{ product.releaseDate | date: 'dd-MM-yyyy' }}</p>
+
+<p>Number Pipe : {{ 1234.56789 | number: '4.2-3' }}</p>
+
+<p>Async Pipe : {{ promise | async }}</p>
