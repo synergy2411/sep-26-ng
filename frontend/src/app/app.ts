@@ -1,14 +1,13 @@
 import { Component } from '@angular/core';
-import { DirectiveDemo } from './core/directive-demo/directive-demo';
-import { PipeDemo } from './core/pipe-demo/pipe-demo';
-import { Users } from './core/users/users';
-import { Login } from './auth/login/login';
-import { Register } from './auth/register/register';
+import { CompA } from './counter/comp-a/comp-a';
+import { CompB } from './counter/comp-b/comp-b';
+import { Counter } from './core/services/counter';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.html',
   styleUrl: './app.css',
-  imports: [Users, DirectiveDemo, PipeDemo, Login, Register],
+  imports: [CompA, CompB],
+  // providers: [Counter],
 })
 export class App {}
