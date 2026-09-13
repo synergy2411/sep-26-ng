@@ -1,0 +1,49 @@
+<h2 class="text-center">Login Form</h2>
+
+<form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+  <!-- email field -->
+  <div class="form-floating mb-3">
+    <input
+      type="email"
+      email
+      required
+      class="form-control"
+      name="username"
+      id="username"
+      placeholder=""
+      ngModel
+    />
+    <label for="username">Email:</label>
+  </div>
+
+  <!-- password field -->
+  <div class="form-floating mb-3">
+    <input
+      type="password"
+      class="form-control"
+      name="password"
+      id="password"
+      placeholder=""
+      ngModel
+      minlength="6"
+      required
+    />
+    <label for="password">Password:</label>
+  </div>
+
+  <!-- buttons -->
+  <div class="row">
+    <div class="col">
+      <div class="d-grid">
+        <button class="btn btn-primary" type="submit" [disabled]="!loginForm.valid">Login</button>
+      </div>
+    </div>
+    <div class="col">
+      <div class="d-grid">
+        <button class="btn btn-secondary" type="button" (click)="loginForm.reset()">Reset</button>
+      </div>
+    </div>
+  </div>
+
+  Form State : {{ loginForm.status }}
+</form>
