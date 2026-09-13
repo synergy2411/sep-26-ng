@@ -4,6 +4,8 @@ import { Register } from './auth/register/register';
 import { PipeDemo } from './core/pipe-demo/pipe-demo';
 import { ObservableDemo } from './core/observable-demo/observable-demo';
 import { Todos } from './core/todos/todos';
+import { loginGuard } from './core/guards/login-guard';
+import { exitGuard } from './core/guards/exit-guard';
 
 export const routes: Routes = [
   {
@@ -13,6 +15,7 @@ export const routes: Routes = [
   {
     path: 'register',
     component: Register,
+    canDeactivate: [exitGuard],
   },
   {
     path: 'pipe',
@@ -25,6 +28,7 @@ export const routes: Routes = [
   {
     path: 'todos',
     component: Todos,
+    canActivate: [loginGuard],
   },
   {
     path: '**',

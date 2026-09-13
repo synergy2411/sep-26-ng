@@ -35,4 +35,8 @@ export class Register {
   onSubmit() {
     console.log(this.registerForm.value);
   }
+
+  shouldExit() {
+    return confirm('Are you sure to leave the page?');
+  }
 }

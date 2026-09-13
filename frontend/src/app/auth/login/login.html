@@ -1,5 +1,9 @@
 <h2 class="text-center">Login Form</h2>
 
+@if (responseMessage.trim() !== '') {
+  <h5 class="alert alert-info">{{ responseMessage }}</h5>
+}
+
 <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
   <!-- email field -->
   <div class="form-floating mb-3">

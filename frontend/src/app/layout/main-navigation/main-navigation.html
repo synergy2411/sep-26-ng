@@ -1,21 +1,36 @@
 <header>
-  <nav>
-    <ul class="nav nav-tabs">
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="['login']">Login</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="['register']">Register</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="['pipe']">Pipe</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="['observable']">Observable</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="['todos']">Todos</a>
-      </li>
-    </ul>
-  </nav>
+  <div class="row">
+    <div class="col-9">
+      <nav>
+        <ul class="nav nav-tabs">
+          @if (!authService.isAuthenticated()) {
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['login']">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['register']">Register</a>
+            </li>
+          }
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['pipe']">Pipe</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['observable']">Observable</a>
+          </li>
+          @if (authService.isAuthenticated()) {
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['todos']">Todos</a>
+            </li>
+          }
+        </ul>
+      </nav>
+    </div>
+    <div class="col-3">
+      @if (authService.isAuthenticated()) {
+        <div class="d-grid">
+          <button class="btn btn-link" (click)="authService.onLogout()">Logout</button>
+        </div>
+      }
+    </div>
+  </div>
 </header>
