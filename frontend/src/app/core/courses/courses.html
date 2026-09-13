@@ -1,0 +1,11 @@
+<h2>All Courses</h2>
+
+<ul class="list-group">
+  @for (course of allCourses; track $index) {
+    <li class="list-group-item mb-3" (click)="onCourseSelect(course)">
+      {{ course.title | uppercase }}
+    </li>
+  }
+</ul>
+
+<router-outlet></router-outlet>

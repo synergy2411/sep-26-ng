@@ -1,0 +1,11 @@
+<div class="backdrop">
+  <div class="my-modal text-center">
+    <h5 class="text-center">{{ course.title | uppercase }}</h5>
+    <h6 class="text-center">Duration : {{ course.duration }}Hrs</h6>
+
+    <br />
+    <div class="text-center">
+      <a [routerLink]="['/courses']" class="text-center">See all courses</a>
+    </div>
+  </div>
+</div>
