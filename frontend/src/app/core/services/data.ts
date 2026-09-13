@@ -14,5 +14,15 @@ export class Data {
     return this.httpClient.get<Todo[]>(`${this.baseURL}/todos`);
   }
 
-  delete(id: string) {}
+  delete(todoId: string) {
+    return this.httpClient.delete(`${this.baseURL}/todos/${todoId}`);
+  }
+
+  create(todo: { label: string; status: string }) {
+    return this.httpClient.post<Todo>(`${this.baseURL}/todos`, todo, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+  }
 }

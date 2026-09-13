@@ -1,13 +1,28 @@
-<h2>My Todos</h2>
+<h2 class="text-center">My Todos</h2>
+
+<!-- Accept user input -->
+<div class="row mb-4">
+  <div class="col-8 offset-2">
+    <form>
+      <div class="row">
+        <div class="col-8">
+          <input type="text" class="form-control" name="txt-label" [(ngModel)]="inputLabel" />
+        </div>
+        <div class="col-4">
+          <button class="btn btn-dark" (click)="onAdd()" type="button">Add</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
 
 <div class="row">
   @for (todo of todoCollection; track $index) {
-    <div class="col">
+    <div class="col-4">
       <div class="card">
         <div class="card-body text-center">
           <h5>{{ todo.label | uppercase }}</h5>
-
-          <button class="btn btn-sm btn-outline-danger">Delete</button>
+          <button class="btn btn-sm btn-outline-danger" (click)="onDelete(todo.id)">Delete</button>
         </div>
       </div>
     </div>

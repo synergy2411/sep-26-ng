@@ -1,19 +1,9 @@
 {
   "todos": [
     {
-      "id": "t001",
-      "label": "shopping",
-      "status": "pending"
-    },
-    {
-      "id": "t002",
-      "label": "planting",
-      "status": "completed"
-    },
-    {
-      "id": "t003",
       "label": "grocery",
-      "status": "pending"
+      "status": "pending",
+      "id": "E5Z8Lf2"
     }
   ]
 }
