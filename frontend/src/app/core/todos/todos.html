@@ -3,28 +3,15 @@
 <!-- Accept user input -->
 <div class="row mb-4">
   <div class="col-8 offset-2">
-    <form>
-      <div class="row">
-        <div class="col-8">
-          <input type="text" class="form-control" name="txt-label" [(ngModel)]="inputLabel" />
-        </div>
-        <div class="col-4">
-          <button class="btn btn-dark" (click)="onAdd()" type="button">Add</button>
-        </div>
-      </div>
-    </form>
+    <app-todo-form (addTodoEvent)="onAdd($event)"></app-todo-form>
   </div>
 </div>
 
+<!-- Display all todos -->
 <div class="row">
   @for (todo of todoCollection; track $index) {
     <div class="col-4">
-      <div class="card">
-        <div class="card-body text-center">
-          <h5>{{ todo.label | uppercase }}</h5>
-          <button class="btn btn-sm btn-outline-danger" (click)="onDelete(todo.id)">Delete</button>
-        </div>
-      </div>
+      <app-todo-item [todo]="todo" (deleteTodoEvent)="onDelete($event)"></app-todo-item>
     </div>
   }
 </div>

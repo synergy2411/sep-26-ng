@@ -1,0 +1,6 @@
+<div class="card">
+  <div class="card-body text-center">
+    <h5>{{ todo.label | uppercase }}</h5>
+    <button class="btn btn-sm btn-outline-danger" (click)="onDelete(todo.id)">Delete</button>
+  </div>
+</div>

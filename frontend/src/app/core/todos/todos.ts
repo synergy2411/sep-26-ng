@@ -3,10 +3,12 @@ import { Component, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Todo } from '../../model/todo';
 import { Data } from '../services/data';
+import { TodoForm } from './todo-form/todo-form';
+import { TodoItem } from './todo-item/todo-item';
 
 @Component({
   selector: 'app-todos',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, TodoForm, TodoItem],
   templateUrl: './todos.html',
   styleUrl: './todos.css',
 })
@@ -14,8 +16,6 @@ export class Todos implements OnInit {
   service = inject(Data);
 
   todoCollection!: Array<Todo>;
-
-  inputLabel = '';
 
   ngOnInit(): void {
     this.service.fetchAll().subscribe((todoCollection) => (this.todoCollection = todoCollection));
@@ -28,18 +28,9 @@ export class Todos implements OnInit {
     });
   }
 
-  onAdd() {
-    if (this.inputLabel.trim() === '') {
-      return;
-    }
-
-    const newTodo = {
-      label: this.inputLabel,
-      status: 'pending',
-    };
-    this.service.create(newTodo).subscribe((createdTodo) => {
+  onAdd(todo: { label: string; status: string }) {
+    this.service.create(todo).subscribe((createdTodo) => {
       this.todoCollection = [createdTodo, ...this.todoCollection];
     });
-    this.inputLabel = '';
   }
 }
