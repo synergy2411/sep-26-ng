@@ -1,0 +1,62 @@
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <!-- email -->
+  <div class="form-floating mb-3">
+    <input
+      formControlName="email"
+      type="text"
+      class="form-control"
+      name="email"
+      id="email"
+      placeholder=""
+    />
+    <label for="email">Email:</label>
+
+    <!-- Error Messages -->
+    <div *ngIf="email.touched && email.invalid">
+      <div *ngIf="email.hasError('required')">
+        <p class="alert alert-danger">- Email is mandatory field</p>
+      </div>
+      <div *ngIf="email.hasError('email')">
+        <p class="alert alert-danger">- Email should be in proper format</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- password -->
+  <div class="form-floating mb-3">
+    <input
+      formControlName="password"
+      type="password"
+      class="form-control"
+      name="password"
+      id="password"
+      placeholder=""
+    />
+    <label for="password">Password:</label>
+
+    <div *ngIf="password.touched && password.invalid">
+      <div *ngIf="password.hasError('required')">
+        <p class="alert alert-danger">- Password is mandatory field</p>
+      </div>
+      <div *ngIf="password.hasError('minlength')">
+        <p class="alert alert-danger">- Password must have at least 6 characters</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- button -->
+  <div class="row">
+    <div class="col">
+      <div class="d-grid">
+        <button class="btn btn-success" type="submit" [disabled]="!registerForm.valid">
+          Register
+        </button>
+      </div>
+    </div>
+    <div class="col">
+      <div class="d-grid">
+        <button class="btn btn-secondary" type="button">Reset</button>
+      </div>
+    </div>
+  </div>
+</form>
