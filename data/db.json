@@ -1,9 +1,31 @@
 {
   "todos": [
     {
-      "label": "grocery",
+      "label": "shopping",
       "status": "pending",
-      "id": "E5Z8Lf2"
+      "id": 2
+    },
+    {
+      "label": "planting",
+      "status": "pending",
+      "id": 3
+    }
+  ],
+  "courses": [
+    {
+      "id": "c001",
+      "title": "Awesome Angular",
+      "duration": 16
+    },
+    {
+      "id": "c002",
+      "title": "Refresh React",
+      "duration": 24
+    },
+    {
+      "id": "c003",
+      "title": "Node for Naive",
+      "duration": 32
     }
   ]
 }
